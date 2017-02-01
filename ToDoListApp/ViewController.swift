@@ -2,9 +2,9 @@
 //  ViewController.swift
 //  ToDoListApp
 //
-//  Created by Basil on 2017-01-31.
+//  Created by Basil on 2017-01-31. (300919992)
 //  Copyright © 2017 Centennial College. All rights reserved.
-//
+//  This is a TodoList application 
 
 import UIKit
 
