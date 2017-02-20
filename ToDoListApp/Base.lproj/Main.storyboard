@@ -51,7 +51,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Rxh-cb-hdK">
                             <connections>
                                 <action selector="newTask:" destination="BYZ-38-t0r" id="ZZa-be-GrH"/>
-                                <segue destination="57v-P5-Eup" kind="show" identifier="detailScreen" id="yKQ-VT-hkQ"/>
+                                <segue destination="57v-P5-Eup" kind="showDetail" identifier="detailScreen" action="showViewController:sender:" id="yKQ-VT-hkQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -125,7 +125,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="nameLabel" destination="rga-Dr-HrE" id="UFR-R5-7mD"/>
-                        <outlet property="notes" destination="TdW-JG-0Vv" id="dQu-61-CeN"/>
+                        <outlet property="notes" destination="TdW-JG-0Vv" id="iY7-Wq-8eQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="06w-nf-rTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
