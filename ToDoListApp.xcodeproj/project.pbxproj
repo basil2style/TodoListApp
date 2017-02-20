@@ -16,6 +16,7 @@
 		FDEACF471E417A1500909197 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDEACF461E417A1500909197 /* Assets.xcassets */; };
 		FDEACF4A1E417A1500909197 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDEACF481E417A1500909197 /* LaunchScreen.storyboard */; };
 		FDEACF551E417A1500909197 /* ToDoListAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEACF541E417A1500909197 /* ToDoListAppTests.swift */; };
+		FDF652261E5AB5AB000D674A /* ViewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF652251E5AB5AB000D674A /* ViewDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		FDEACF501E417A1500909197 /* ToDoListAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEACF541E417A1500909197 /* ToDoListAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListAppTests.swift; sourceTree = "<group>"; };
 		FDEACF561E417A1500909197 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDF652251E5AB5AB000D674A /* ViewDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				FDEACF481E417A1500909197 /* LaunchScreen.storyboard */,
 				FDEACF4B1E417A1500909197 /* Info.plist */,
 				FD91081A1E53FD8B009A2D0A /* model */,
+				FDF652251E5AB5AB000D674A /* ViewDetail.swift */,
 			);
 			path = ToDoListApp;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDEACF421E417A1400909197 /* ViewController.swift in Sources */,
+				FDF652261E5AB5AB000D674A /* ViewDetail.swift in Sources */,
 				FD9108181E53FD7D009A2D0A /* Tasks.swift in Sources */,
 				FDEACF401E417A1400909197 /* AppDelegate.swift in Sources */,
 			);

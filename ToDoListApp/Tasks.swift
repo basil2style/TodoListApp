@@ -11,6 +11,11 @@ import Realm
 
 class Tasks: RLMObject {
  
-    dynamic var task = "" 
+    dynamic var name : String = "";
+    var completed : Bool = false;
+    dynamic var notes : String = "";
+    
+    
+    
     
 }

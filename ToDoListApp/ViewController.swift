@@ -27,7 +27,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     
     @IBAction func newTask(_ sender: Any) {
-        let alert = UIAlertController(title: "New item", message: "Add a new item", preferredStyle: .alert)
+      /*  let alert = UIAlertController(title: "New item", message: "Add a new item", preferredStyle: .alert)
         let saveAction = UIAlertAction(title: "Save", style: .default)
         {   (action) -> Void in
             let textField = alert.textFields![0] as UITextField
@@ -37,8 +37,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 newTask.task = textField.text!
                 
                 try! realm.write {
-                  //  realm.add(newTask, update: true)
-                    realm.create(Tasks.self, value: ["task":newTask.task])
+                  //  realm.add(self)
+                  //  realm.create(Tasks.self, value: ["task":newTask.task])
                 }
                 
                 
@@ -56,6 +56,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)
+ */
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -69,7 +70,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let index = UInt(indexPath.row)
         let todoItem = task.object(at: index) as! Tasks // [4]
-        cell.textLabel!.text = todoItem.task // [5]
+        cell.textLabel!.text = todoItem.name // [5]
         
         return cell
     }

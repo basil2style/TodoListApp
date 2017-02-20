@@ -34,7 +34,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="57v-P5-Eup" kind="show" id="cfB-WM-w45"/>
+                                            <segue destination="57v-P5-Eup" kind="show" id="HZ1-HA-9VR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -64,7 +64,7 @@
         <!--TodoDetailScreen-->
         <scene sceneID="mhb-3z-glV">
             <objects>
-                <viewController title="TodoDetailScreen" id="57v-P5-Eup" sceneMemberID="viewController">
+                <viewController title="TodoDetailScreen" id="57v-P5-Eup" customClass="ViewDetail" customModule="ToDoListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ITb-8I-mmW"/>
                         <viewControllerLayoutGuide type="bottom" id="9TF-u6-AzU"/>
@@ -74,7 +74,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rga-Dr-HrE">
-                                <rect key="frame" x="0.0" y="64" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="122" width="375" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -84,6 +84,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Detail Screen" id="rIs-3I-QPy">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="Rmh-QY-bax"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="06w-nf-rTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -95,7 +98,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OTm-bJ-i8G" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VYB-sB-ASi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="VYB-sB-ASi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
