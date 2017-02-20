@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,7 +35,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="57v-P5-Eup" kind="show" id="HZ1-HA-9VR"/>
+                                            <segue destination="57v-P5-Eup" kind="show" identifier="details" id="HZ1-HA-9VR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -47,9 +48,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="TodoList" id="RvN-dR-dOh">
-                        <barButtonItem key="rightBarButtonItem" title="New" id="Rxh-cb-hdK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Rxh-cb-hdK">
                             <connections>
                                 <action selector="newTask:" destination="BYZ-38-t0r" id="ZZa-be-GrH"/>
+                                <segue destination="57v-P5-Eup" kind="show" identifier="detailScreen" id="yKQ-VT-hkQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -64,30 +66,67 @@
         <!--TodoDetailScreen-->
         <scene sceneID="mhb-3z-glV">
             <objects>
-                <viewController title="TodoDetailScreen" id="57v-P5-Eup" customClass="ViewDetail" customModule="ToDoListApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="details" title="TodoDetailScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="57v-P5-Eup" customClass="ViewDetail" customModule="ToDoListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ITb-8I-mmW"/>
                         <viewControllerLayoutGuide type="bottom" id="9TF-u6-AzU"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Jr8-Gp-JZ9">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="details" id="Jr8-Gp-JZ9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rga-Dr-HrE">
-                                <rect key="frame" x="0.0" y="122" width="375" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rga-Dr-HrE">
+                                <rect key="frame" x="16" y="122" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qd0-pq-ccS">
+                                <rect key="frame" x="16" y="93" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jS8-pT-5bX">
+                                <rect key="frame" x="16" y="204" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TdW-JG-0Vv">
+                                <rect key="frame" x="16" y="247" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qd0-pq-ccS" firstAttribute="top" secondItem="ITb-8I-mmW" secondAttribute="bottom" constant="29" id="K55-01-6Pq"/>
+                            <constraint firstItem="qd0-pq-ccS" firstAttribute="leading" secondItem="rga-Dr-HrE" secondAttribute="leading" id="LOe-Be-AT2"/>
+                            <constraint firstItem="TdW-JG-0Vv" firstAttribute="top" secondItem="jS8-pT-5bX" secondAttribute="bottom" constant="22" id="Wus-t5-nsq"/>
+                            <constraint firstItem="rga-Dr-HrE" firstAttribute="top" secondItem="qd0-pq-ccS" secondAttribute="bottom" constant="8" symbolic="YES" id="bRo-en-hyG"/>
+                            <constraint firstItem="qd0-pq-ccS" firstAttribute="leading" secondItem="Jr8-Gp-JZ9" secondAttribute="leadingMargin" id="d8a-NP-az3"/>
+                            <constraint firstItem="rga-Dr-HrE" firstAttribute="trailing" secondItem="Jr8-Gp-JZ9" secondAttribute="trailingMargin" id="g8W-F0-Op8"/>
+                            <constraint firstItem="jS8-pT-5bX" firstAttribute="top" secondItem="rga-Dr-HrE" secondAttribute="bottom" constant="52" id="pdt-fK-nUW"/>
+                            <constraint firstItem="rga-Dr-HrE" firstAttribute="trailing" secondItem="TdW-JG-0Vv" secondAttribute="trailing" id="qQ3-zK-i93"/>
+                            <constraint firstItem="jS8-pT-5bX" firstAttribute="leading" secondItem="TdW-JG-0Vv" secondAttribute="leading" id="si2-to-tr6"/>
+                            <constraint firstItem="rga-Dr-HrE" firstAttribute="leading" secondItem="jS8-pT-5bX" secondAttribute="leading" id="zii-Jk-O8U"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail Screen" id="rIs-3I-QPy">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="Rmh-QY-bax"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="Rmh-QY-bax">
+                            <connections>
+                                <action selector="actionSave:" destination="57v-P5-Eup" id="6c6-rD-kMj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="rga-Dr-HrE" id="UFR-R5-7mD"/>
+                        <outlet property="notes" destination="TdW-JG-0Vv" id="dQu-61-CeN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="06w-nf-rTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -112,4 +151,7 @@
             <point key="canvasLocation" x="133.59999999999999" y="-549.17541229385313"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yKQ-VT-hkQ"/>
+    </inferredMetricsTieBreakers>
 </document>

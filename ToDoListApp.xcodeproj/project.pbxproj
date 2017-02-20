@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8529B51A0B77ADD196DCEB47 /* Pods_ToDoListAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB29A44F5D9469F03F8E8C0 /* Pods_ToDoListAppTests.framework */; };
 		A9E9074F5A245E6211592D3E /* Pods_ToDoListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A4AA31AE7CD63D808708517 /* Pods_ToDoListApp.framework */; };
-		FD9108181E53FD7D009A2D0A /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9108171E53FD7D009A2D0A /* Tasks.swift */; };
 		FDEACF401E417A1400909197 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEACF3F1E417A1400909197 /* AppDelegate.swift */; };
 		FDEACF421E417A1400909197 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEACF411E417A1400909197 /* ViewController.swift */; };
 		FDEACF451E417A1500909197 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDEACF431E417A1500909197 /* Main.storyboard */; };
@@ -17,6 +16,7 @@
 		FDEACF4A1E417A1500909197 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDEACF481E417A1500909197 /* LaunchScreen.storyboard */; };
 		FDEACF551E417A1500909197 /* ToDoListAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEACF541E417A1500909197 /* ToDoListAppTests.swift */; };
 		FDF652261E5AB5AB000D674A /* ViewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF652251E5AB5AB000D674A /* ViewDetail.swift */; };
+		FDF652281E5AC622000D674A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF652271E5AC622000D674A /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 		93094E52BEFE87ADB702EE4F /* Pods-ToDoListAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoListAppTests/Pods-ToDoListAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CAA728E9E8E1F026C6E45606 /* Pods-ToDoListApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoListApp/Pods-ToDoListApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E2D6E35C9256214C86D7E51E /* Pods-ToDoListAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoListAppTests/Pods-ToDoListAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		FD9108171E53FD7D009A2D0A /* Tasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
 		FDEACF3C1E417A1400909197 /* ToDoListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEACF3F1E417A1400909197 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDEACF411E417A1400909197 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 		FDEACF541E417A1500909197 /* ToDoListAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListAppTests.swift; sourceTree = "<group>"; };
 		FDEACF561E417A1500909197 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDF652251E5AB5AB000D674A /* ViewDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDetail.swift; sourceTree = "<group>"; };
+		FDF652271E5AC622000D674A /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 		FD91081A1E53FD8B009A2D0A /* model */ = {
 			isa = PBXGroup;
 			children = (
-				FD9108171E53FD7D009A2D0A /* Tasks.swift */,
+				FDF652271E5AC622000D674A /* Task.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -123,12 +123,12 @@
 			children = (
 				FDEACF3F1E417A1400909197 /* AppDelegate.swift */,
 				FDEACF411E417A1400909197 /* ViewController.swift */,
+				FDF652251E5AB5AB000D674A /* ViewDetail.swift */,
 				FDEACF431E417A1500909197 /* Main.storyboard */,
 				FDEACF461E417A1500909197 /* Assets.xcassets */,
 				FDEACF481E417A1500909197 /* LaunchScreen.storyboard */,
 				FDEACF4B1E417A1500909197 /* Info.plist */,
 				FD91081A1E53FD8B009A2D0A /* model */,
-				FDF652251E5AB5AB000D674A /* ViewDetail.swift */,
 			);
 			path = ToDoListApp;
 			sourceTree = "<group>";
@@ -348,7 +348,7 @@
 			files = (
 				FDEACF421E417A1400909197 /* ViewController.swift in Sources */,
 				FDF652261E5AB5AB000D674A /* ViewDetail.swift in Sources */,
-				FD9108181E53FD7D009A2D0A /* Tasks.swift in Sources */,
+				FDF652281E5AC622000D674A /* Task.swift in Sources */,
 				FDEACF401E417A1400909197 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

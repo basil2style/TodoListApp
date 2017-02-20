@@ -1,16 +1,15 @@
 //
-//  Tasks.swift
+//  Task.swift
 //  ToDoListApp
 //
-//  Created by Basil on 2017-02-14.
+//  Created by Basil on 2017-02-20.
 //  Copyright © 2017 Centennial College. All rights reserved.
 //
 
-import Foundation
-import Realm
+import UIKit
+import RealmSwift
 
-class Tasks: RLMObject {
- 
+internal class Task: Object {
     dynamic var name : String = "";
     var completed : Bool = false;
     dynamic var notes : String = "";
