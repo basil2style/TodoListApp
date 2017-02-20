@@ -22,16 +22,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="67G-ZO-2kC">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="67G-ZO-2kC">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="XJu-HR-mSG">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XJu-HR-mSG" id="n8J-eo-ieR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -44,8 +43,26 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="PN7-mh-2lc"/>
                                 </connections>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6aa-Ov-U6P">
+                                <rect key="frame" x="125" y="64" width="147" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="147" id="1hc-Xy-gW6"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Open"/>
+                                    <segment title="Completed"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="6aa-Ov-U6P" secondAttribute="trailing" constant="87" id="5FJ-wF-mwh"/>
+                            <constraint firstItem="67G-ZO-2kC" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="DXN-Kf-3IA"/>
+                            <constraint firstItem="67G-ZO-2kC" firstAttribute="top" secondItem="6aa-Ov-U6P" secondAttribute="top" id="Dzg-9c-gXy"/>
+                            <constraint firstItem="67G-ZO-2kC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="NyX-dt-UaX"/>
+                            <constraint firstItem="67G-ZO-2kC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kNB-9W-Coj"/>
+                            <constraint firstAttribute="trailing" secondItem="67G-ZO-2kC" secondAttribute="trailing" id="pGf-Bl-3L7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="TodoList" id="RvN-dR-dOh">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Rxh-cb-hdK">
@@ -76,25 +93,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rga-Dr-HrE">
-                                <rect key="frame" x="16" y="122" width="343" height="30"/>
+                                <rect key="frame" x="16" y="78" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qd0-pq-ccS">
-                                <rect key="frame" x="16" y="93" width="50" height="21"/>
+                                <rect key="frame" x="16" y="49" width="50" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jS8-pT-5bX">
-                                <rect key="frame" x="16" y="204" width="51" height="21"/>
+                                <rect key="frame" x="16" y="160" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TdW-JG-0Vv">
-                                <rect key="frame" x="16" y="247" width="343" height="30"/>
+                                <rect key="frame" x="16" y="203" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -137,7 +154,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OTm-bJ-i8G" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="VYB-sB-ASi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VYB-sB-ASi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

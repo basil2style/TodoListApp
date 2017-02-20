@@ -15,7 +15,7 @@ class ViewDetail: UIViewController {
     let task = Task()
     var nameReceived : String!
     var notesReceived : String!
-
+    var index: Int!
     
     var forUpdate : Bool!
     @IBOutlet weak var nameLabel: UITextField!
@@ -26,11 +26,13 @@ class ViewDetail: UIViewController {
         else {
             let realm = try! Realm()
             let task = realm.objects(Task.self)
+            print(task.description)
+            task.index(matching: nameReceived)
             try! realm.write {
              
                 task.setValue(nameLabel.text, forKeyPath: "name")
                 // set each person's planet property to "Earth"
-                task.setValue(notes.text!, forKeyPath: "notes")
+               // task.setValue(notes.text!, forKeyPath: "notes")
                 
             }
         }

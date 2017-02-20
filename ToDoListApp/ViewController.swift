@@ -51,6 +51,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as UITableViewCell
         
         let index = UInt(indexPath.row)
+        print(index)
         let currentDetail = datasource[indexPath.row]
         cell.textLabel?.text = currentDetail.name
         return cell
@@ -64,7 +65,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //print(currentCell)
         valueToPass = currentCell.textLabel?.text
         // Segue to the second view controller
-        //print(datasource.)
+        
         self.performSegue(withIdentifier: "details", sender: self)
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -72,11 +73,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.destructive, title: "Done") {
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.destructive, title: "Delete") {
             (deleteAction, indexPath) -> Void in
             
              let listToBeDeleted = self.datasource[indexPath.row]
-            print(indexPath.row)
+           // print(indexPath.row)
             try! self.realm.write {
                 () -> Void in
                 self.realm.delete(listToBeDeleted)
@@ -84,9 +85,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             
             }
-        let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") {
+        let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Done") {
             (editAction, indexPath) -> Void in
-            
+            let listToComplete = self.datasource[indexPath.row]
+            listToComplete.completed = true
+            self.reloadTable()
         }
         return [deleteAction,editAction]
     }
