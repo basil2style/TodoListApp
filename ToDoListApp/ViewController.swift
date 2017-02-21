@@ -53,6 +53,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let index = UInt(indexPath.row)
         print(index)
         let currentDetail = datasource[indexPath.row]
+        if currentDetail.completed {
+            cell.textLabel?.textColor = UIColor.lightGray
+        }else {
+            
+        }
         cell.textLabel?.text = currentDetail.name
         return cell
     }
@@ -89,11 +94,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             (editAction, indexPath) -> Void in
             let listToComplete = self.datasource[indexPath.row]
             listToComplete.completed = true
+            print("listComplete \(listToComplete)")
+            try! self.realm.write {
+                () -> Void in
+                self.realm.add(listToComplete)
+                self.reloadTable()
+            }
             self.reloadTable()
         }
         return [deleteAction,editAction]
     }
 
+    //segue preparation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let secondVC = segue.destination as! ViewDetail

@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 
+//Model
 internal class Task: Object {
     dynamic var name : String = "";
     var completed : Bool = false;
