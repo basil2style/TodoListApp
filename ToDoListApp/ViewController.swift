@@ -13,8 +13,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     var datasource : Results<Task>!
     var valueToPass:String!
-    let realm = try! Realm()
+    var realm = try! Realm()
 
+    var taskItems:List<Task> {
+        get {
+            return List(realm.objects(Task.self)) // return data from realm
+        }
+        set(_taskItems) {
+            self.taskItems = _taskItems
+        }
+    }
     
     @IBOutlet weak var tableView: UITableView!
     //var task = Task.allObjects()
@@ -78,6 +86,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let taskItem = taskItems[indexPath.row]
+        let cell = tableView.cellForRow(at: indexPath)
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.destructive, title: "Delete") {
             (deleteAction, indexPath) -> Void in
             
@@ -92,18 +102,44 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Done") {
             (editAction, indexPath) -> Void in
-            let listToComplete = self.datasource[indexPath.row]
-            listToComplete.completed = true
-            print("listComplete \(listToComplete)")
             try! self.realm.write {
-                () -> Void in
-                self.realm.add(listToComplete)
-                self.reloadTable()
+                taskItem.completed = !taskItem.completed
             }
-            self.reloadTable()
+            tableView.reloadRows(at: [indexPath], with: .right)
+        }
+        if (taskItem.completed){
+            editAction.title = "NotDone"
+            cell?.alpha = 0.5
+        }else {
+            editAction.title = "Done"
+            cell?.alpha = 1
         }
         return [deleteAction,editAction]
     }
+    // Add item to db
+    func addTask(_ taskItem: Task) {
+        taskItem.index = taskItems.count
+        try! realm.write {
+            realm.add(taskItem)
+            self.tableView.insertRows(at: [IndexPath(row: taskItem.index, section: 0)], with: .automatic)
+        }
+    }
+    
+    // Delete item from db
+    func deleteTask(at: Int) {
+        try! realm.write {
+            realm.delete(taskItems[at])
+            self.tableView.deleteRows(at: [IndexPath(item: at, section: 0)], with: .automatic)
+        }
+    }
+    
+    // Update item in db
+    func updateTask(at: Int, with: Task) {
+        self.deleteTask(at: at)
+        self.addTask(with)
+    }
+    
+   
 
     //segue preparation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -111,6 +147,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let secondVC = segue.destination as! ViewDetail
        // print(valueToPass)
         if (segue.identifier == "details") {
+            secondVC.taskItem = taskItems[(tableView.indexPathForSelectedRow?.row)!]
             secondVC.nameReceived = valueToPass
             secondVC.forUpdate = true
             
@@ -119,6 +156,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //secondVC.notesReceived =
         if (segue.identifier == "detailScreen") {
             //secondVC.nameReceived = valueToPass
+            
             secondVC.forUpdate = false
             
         }

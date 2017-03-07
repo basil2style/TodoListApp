@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XJu-HR-mSG" id="n8J-eo-ieR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -43,22 +43,10 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="PN7-mh-2lc"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6aa-Ov-U6P">
-                                <rect key="frame" x="125" y="64" width="147" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="147" id="1hc-Xy-gW6"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Open"/>
-                                    <segment title="Completed"/>
-                                </segments>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="6aa-Ov-U6P" secondAttribute="trailing" constant="87" id="5FJ-wF-mwh"/>
                             <constraint firstItem="67G-ZO-2kC" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="DXN-Kf-3IA"/>
-                            <constraint firstItem="67G-ZO-2kC" firstAttribute="top" secondItem="6aa-Ov-U6P" secondAttribute="top" id="Dzg-9c-gXy"/>
                             <constraint firstItem="67G-ZO-2kC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="NyX-dt-UaX"/>
                             <constraint firstItem="67G-ZO-2kC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kNB-9W-Coj"/>
                             <constraint firstAttribute="trailing" secondItem="67G-ZO-2kC" secondAttribute="trailing" id="pGf-Bl-3L7"/>
