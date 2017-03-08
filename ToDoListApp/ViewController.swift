@@ -116,28 +116,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         return [deleteAction,editAction]
     }
-    // Add item to db
-    func addTask(_ taskItem: Task) {
-        taskItem.index = taskItems.count
-        try! realm.write {
-            realm.add(taskItem)
-            self.tableView.insertRows(at: [IndexPath(row: taskItem.index, section: 0)], with: .automatic)
-        }
-    }
-    
-    // Delete item from db
-    func deleteTask(at: Int) {
-        try! realm.write {
-            realm.delete(taskItems[at])
-            self.tableView.deleteRows(at: [IndexPath(item: at, section: 0)], with: .automatic)
-        }
-    }
-    
-    // Update item in db
-    func updateTask(at: Int, with: Task) {
-        self.deleteTask(at: at)
-        self.addTask(with)
-    }
     
    
 
@@ -148,7 +126,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
        // print(valueToPass)
         if (segue.identifier == "details") {
             secondVC.taskItem = taskItems[(tableView.indexPathForSelectedRow?.row)!]
-            secondVC.nameReceived = valueToPass
+           // secondVC.nameReceived = valueToPass
             secondVC.forUpdate = true
             
         }

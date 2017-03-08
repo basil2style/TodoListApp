@@ -13,17 +13,25 @@ import RealmSwift
 class ViewDetail: UIViewController {
     
     
-    var datasource : Results<Task>! = nil
+   // var datasource : Results<Task>! = nil
     let task = Task()
-    var nameReceived : String!
-    var notesReceived : String!
     var index: Int!
-    var taskValue: TaskItemProtocol?
+    //var taskValue: TaskItemProtocol?
     var taskItem: Task?
     var forUpdate : Bool!
+    var realm = try! Realm()
     @IBOutlet weak var nameLabel: UITextField!
     @IBAction func actionSave(_ sender: Any) {
+        if taskItem == nil {
         saveDetails()
+        }
+        else {
+            self.realm.beginWrite()
+            taskItem?.name = nameLabel.text!
+            taskItem?.notes = notes.text!
+            try! realm.commitWrite()
+            
+        }
         self.navigationController?.popToRootViewController(animated: true)
     }
     override func viewDidLoad() {
@@ -63,14 +71,6 @@ class ViewDetail: UIViewController {
         }
            }
 }
-
-protocol TaskItemProtocol {
-    func addTask(_ taskItem: Task)
-    func updateTask(at: Int, with: Task)
-}
-
-
-
 
 
 
