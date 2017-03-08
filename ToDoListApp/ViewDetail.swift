@@ -15,10 +15,8 @@ class ViewDetail: UIViewController {
     
    // var datasource : Results<Task>! = nil
     let task = Task()
-    var index: Int!
-    //var taskValue: TaskItemProtocol?
+  //  var index: Int!
     var taskItem: Task?
-    var forUpdate : Bool!
     var realm = try! Realm()
     @IBOutlet weak var nameLabel: UITextField!
     @IBAction func actionSave(_ sender: Any) {
@@ -26,6 +24,7 @@ class ViewDetail: UIViewController {
         saveDetails()
         }
         else {
+            //Below codes are for updating a Realm object
             self.realm.beginWrite()
             taskItem?.name = nameLabel.text!
             taskItem?.notes = notes.text!
@@ -51,7 +50,7 @@ class ViewDetail: UIViewController {
     
     //saving details
     func saveDetails()  {
-        let task = Task()
+       // let task = Task()
         task.name = nameLabel.text!
         task.completed = false
         task.notes = notes.text!
